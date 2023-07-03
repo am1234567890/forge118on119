@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "I": {
+      "tag": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "#I#",
+    "# #",
+    "###"
+  ],
+  "result": {
+    "item": "minecraft:chest"
+  }
+}
