@@ -3,9 +3,11 @@ package net.aarohan.mccourse.block;
 import net.aarohan.mccourse.MCCourseMod;
 import net.aarohan.mccourse.block.custom.CobaltLampBlock;
 import net.aarohan.mccourse.block.custom.SpeedyBlock;
+import net.aarohan.mccourse.block.custom.TurnipCropBlock;
 import net.aarohan.mccourse.item.ModCreativeModeTab;
 import net.aarohan.mccourse.item.ModItems;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -54,6 +56,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> CHERRY_BLOSSOM_TRAPDOOR = registerBlock("cherry_blossom_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.COURSE_TAB);
 
     public static final RegistryObject<Block> COBALT_LAMP = registerBlock("cobalt_lamp", () -> new CobaltLampBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2f).requiresCorrectToolForDrops().lightLevel((state) -> state.getValue(CobaltLampBlock.CLICKED) ? 15 : 0)), ModCreativeModeTab.COURSE_TAB);
+
+    public static final RegistryObject<Block> TURNIP_CROP = BLOCKS.register("turnip_crop", () -> new TurnipCropBlock(BlockBehaviour.Properties.copy(Blocks.BEETROOTS)   .noCollission().noOcclusion()));
+
+    public static final RegistryObject<Block> PINK_ROSE = registerBlock("pink_rose", () -> new FlowerBlock(MobEffects.BLINDNESS, 4,BlockBehaviour.Properties.copy(Blocks.DANDELION)), ModCreativeModeTab.COURSE_TAB);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab, String tooltipKey) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

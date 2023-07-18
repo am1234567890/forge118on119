@@ -16,9 +16,10 @@
   "item.mccourse.cobalt_chestplate": "Cobalt Chestplate",
   "item.mccourse.cobalt_leggings": "Cobalt Leggings",
   "item.mccourse.cobalt_boots": "Cobalt Boots",
-  "item.mccourse.cobalt_horse_armor": "Cobalt Horse   Armor",
+  "item.mccourse.cobalt_horse_armor": "Cobalt Horse Armor",
   "item.mccourse.data_tablet": "Data Tablet",
 
+  "item.mccourse.turnip_seeds": "Turnip Seeds",
 
   "block.mccourse.cobalt_block": "Cobalt Block",
   "block.mccourse.cobalt_ore": "Cobalt Ore",
@@ -35,10 +36,10 @@
   "block.mccourse.cherry_blossom_door": "Cherry Door",
   "block.mccourse.cherry_blossom_trapdoor": "Cherry Trapdoor",
   "block.mccourse.cobalt_lamp": "Cobalt Lamp",
-
+  "block.mccourse.turnip_crop": "Turnip Crop",
+  "block.mccourse.pink_rose": "Pink Rose",
 
   "itemGroup.coursemodtab": "MCCourse Mod",
-
 
   "item.mccourse.dowsing_rod.no_valuables": "No Valuables Found!",
   "tooltip.mccourse.dowsing_rod.tooltip.shift" : "Right Click to find Valuables!",
