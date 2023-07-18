@@ -2,7 +2,9 @@ package net.aarohan.mccourse;
 
 import com.mojang.logging.LogUtils;
 import net.aarohan.mccourse.block.ModBlocks;
+import net.aarohan.mccourse.enchantment.ModEnchantments;
 import net.aarohan.mccourse.item.ModItems;
+import net.aarohan.mccourse.util.ModItemProperties;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Blocks;
@@ -32,6 +34,8 @@ public class MCCourseMod
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
 
+        ModEnchantments.register(eventBus);
+
         // Register the commonSetup method for modloading
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);
@@ -42,8 +46,10 @@ public class MCCourseMod
 
 
     private void clientSetup(final FMLClientSetupEvent event) {
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHERRY_BLOSSOM_DOOR.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHERRY_BLOSSOM_TRAPDOOR.get(), RenderType.cutout());
+        //ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHERRY_BLOSSOM_DOOR.get(), RenderType.cutout());
+        //ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHERRY_BLOSSOM_TRAPDOOR.get(), RenderType.cutout());
+
+        ModItemProperties.addCustomItemProperties();
     }
 
     private void setup(final FMLCommonSetupEvent event)

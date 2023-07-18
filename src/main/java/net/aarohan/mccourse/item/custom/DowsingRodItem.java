@@ -1,8 +1,11 @@
 package net.aarohan.mccourse.item.custom;
 
+import net.aarohan.mccourse.item.ModItems;
+import net.aarohan.mccourse.util.InventoryUtil;
 import net.aarohan.mccourse.util.ModTags;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -19,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 import java.awt.*;
 import java.util.List;
 
-public class DowsingRodItem extends Item {
+public class   DowsingRodItem extends Item {
     public DowsingRodItem(Properties pProperties) {
         super(pProperties);
     }
@@ -37,6 +40,13 @@ public class DowsingRodItem extends Item {
                 if(isValuableBlock(blockBelow)) {
                     outputValuableCoordinates(positionClicked.below(i), player, blockBelow.getBlock());
                     foundBlock = true;
+
+                    if(InventoryUtil.hasPlayerStackInInventory(player, ModItems.DATA_TABLET.get())) {
+                        addNbtToDataTablet(player, positionClicked.below(i), blockBelow.getBlock());
+                    }
+
+
+                    break;
                 }
             }
 
@@ -50,6 +60,17 @@ public class DowsingRodItem extends Item {
 
         return super.useOn(pContext);
     }
+    private void addNbtToDataTablet(Player player, BlockPos pos, Block blockBelow) {
+        ItemStack dataTablet =
+                player.getInventory().getItem(InventoryUtil.getFirstInventoryIndex(player, ModItems.DATA_TABLET.get()));
+
+        CompoundTag nbtData = new CompoundTag();
+        nbtData.putString("mccourse.last_ore", "Found " + blockBelow.getName() + " at (" +
+                pos.getX() + ", "+ pos.getY() + ", "+ pos.getZ() + ")");
+
+        dataTablet.setTag(nbtData);
+    }
+
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
