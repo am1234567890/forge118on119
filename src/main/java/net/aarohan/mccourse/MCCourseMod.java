@@ -4,11 +4,13 @@ import com.mojang.logging.LogUtils;
 import net.aarohan.mccourse.block.ModBlocks;
 import net.aarohan.mccourse.enchantment.ModEnchantments;
 import net.aarohan.mccourse.item.ModItems;
+import net.aarohan.mccourse.sound.ModSounds;
 import net.aarohan.mccourse.util.ModItemProperties;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -36,6 +38,7 @@ public class MCCourseMod
         ModBlocks.register(eventBus);
 
         ModEnchantments.register(eventBus);
+        ModSounds.register(eventBus);
 
         // Register the commonSetup method for modloading
         eventBus.addListener(this::setup);
@@ -52,6 +55,11 @@ public class MCCourseMod
 
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.TURNIP_CROP.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.PINK_ROSE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_PINK_ROSE.get(), RenderType.cutout());
+
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.COBALT_BLASTER.get(), RenderType.cutout());
+
+
 
 
         ModItemProperties.addCustomItemProperties();
@@ -61,6 +69,9 @@ public class MCCourseMod
         event.enqueueWork(() -> {
             ComposterBlock.COMPOSTABLES.put(ModItems.TURNIP_SEEDS.get(), 0.3f);
             ComposterBlock.COMPOSTABLES.put(ModItems.TURNIP .get(), 0.65f);
+
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.PINK_ROSE.getId(), ModBlocks.POTTED_PINK_ROSE);
+
         });
 
     }

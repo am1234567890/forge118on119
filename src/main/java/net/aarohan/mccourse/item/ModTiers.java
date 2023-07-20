@@ -1,4 +1,4 @@
-package net.aarohan.mccourse.item.custom;
+package net.aarohan.mccourse.item;
 
 import net.aarohan.mccourse.item.ModItems;
 import net.minecraft.tags.BlockTags;
