@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.aarohan.mccourse.block.ModBlocks;
 import net.aarohan.mccourse.enchantment.ModEnchantments;
 import net.aarohan.mccourse.item.ModItems;
+import net.aarohan.mccourse.painting.ModPaintings;
 import net.aarohan.mccourse.sound.ModSounds;
 import net.aarohan.mccourse.util.ModItemProperties;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -39,6 +40,7 @@ public class MCCourseMod
 
         ModEnchantments.register(eventBus);
         ModSounds.register(eventBus);
+        ModPaintings.register(eventBus);
 
         // Register the commonSetup method for modloading
         eventBus.addListener(this::setup);
